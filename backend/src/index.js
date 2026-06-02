@@ -21,19 +21,23 @@ app.use('/api/nutrition', nutritionRouter);
 app.use('/api/meals', mealsRouter);
 app.use('/api/image', imageRouter);
 
-// Health check
+// Health check - always return 200 for platform healthchecks, include Ollama status in body
 app.get('/api/health', async (req, res) => {
+  let ollamaStatus = 'disconnected';
+  let models = [];
   try {
     const r = await fetch(`${process.env.OLLAMA_BASE_URL || 'http://localhost:11434'}/api/tags`);
     const data = await r.json();
-    res.json({
-      status: 'ok',
-      ollama: 'connected',
-      models: data.models?.map(m => m.name) || []
-    });
+    ollamaStatus = 'connected';
+    models = data.models?.map(m => m.name) || [];
   } catch {
-    res.status(503).json({ status: 'ok', ollama: 'disconnected' });
+    // keep ollamaStatus as 'disconnected'
   }
+  res.json({
+    status: 'ok',
+    ollama: ollamaStatus,
+    models
+  });
 });
 
 app.listen(PORT, () => {
