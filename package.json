@@ -1,0 +1,14 @@
+{
+  "name": "nutriai",
+  "private": true,
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "setup": "npm run install:all && cp backend/.env.example backend/.env"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
