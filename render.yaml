@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: nutriai-backend
+    env: node
+    region: oregon
+    plan: free
+    repo: https://github.com/SDHS-limited/NutriAi
+    branch: main
+    root: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: OLLAMA_BASE_URL
+        value: http://your-ollama-host:11434
+      - key: OLLAMA_MODEL
+        value: gemma3:4b
+      - key: OLLAMA_VISION_MODEL
+        value: llava:7b
+      - key: CLIENT_ORIGIN
+        value: 'https://your-frontend-domain.example'
