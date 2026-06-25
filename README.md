@@ -1,8 +1,8 @@
-# 🥗 NutriAI – AI 개인 영양사 (VSCode 풀스택)
+#  NutriAI – AI 개인 영양사 (VSCode 풀스택)
 
 APK 앱을 VSCode 로컬 개발 환경으로 이식한 **React + Express + Ollama** 풀스택 프로젝트입니다.
 
-## 📁 프로젝트 구조
+##  프로젝트 구조
 
 ```
 nutriai/
@@ -19,7 +19,7 @@ nutriai/
         └── services/  # ollama.js (Ollama LLM 연동)
 ```
 
-## 🚀 시작하기
+##  시작하기
 
 ### 1. Ollama 설치 및 모델 다운로드
 ```bash
@@ -44,7 +44,7 @@ npm install
 npm run dev                    # http://localhost:5173
 ```
 
-## ⚙️ 환경변수 (.env)
+##  환경변수 (.env)
 
 | 변수 | 기본값 | 설명 |
 |------|--------|------|
@@ -53,7 +53,7 @@ npm run dev                    # http://localhost:5173
 | `OLLAMA_MODEL` | gemma3:4b | 텍스트 모델 |
 | `OLLAMA_VISION_MODEL` | llava:7b | 이미지 분석 모델 |
 
-## 🎯 주요 기능
+##  주요 기능
 
 | 기능 | 설명 |
 |------|------|
@@ -63,7 +63,7 @@ npm run dev                    # http://localhost:5173
 | 💬 **AI 상담** | 로컬 Ollama와 자유 채팅 (식단 컨텍스트 자동 포함) |
 | 👤 **프로필** | 신체 정보, 목표, 알레르기 관리 |
 
-## 🔌 API 엔드포인트
+##  API 엔드포인트
 
 ```
 GET  /api/health                    # Ollama 연결 상태 확인
@@ -78,8 +78,7 @@ DELETE /api/meals/:id               # 식사 삭제
 GET  /api/meals/weekly/summary      # 주간 통계
 ```
 
-## 💡 모델 선택 가이드
-
+##  모델 선택 가이드
 | 모델 | 크기 | 특징 |
 |------|------|------|
 | `gemma3:4b` | ~3GB | 빠르고 한국어 우수, 권장 |
@@ -87,7 +86,7 @@ GET  /api/meals/weekly/summary      # 주간 통계
 | `qwen2.5:7b` | ~5GB | 더 정확한 분석 |
 | `llava:7b` | ~5GB | 이미지 분석용 (Vision) |
 
-## 🗄️ 데이터 저장
+##  데이터 저장
 
 - **프론트엔드**: Zustand + localStorage (온보딩, 채팅, 식사 기록)
 - **백엔드**: 인메모리 (서버 재시작 시 초기화)
